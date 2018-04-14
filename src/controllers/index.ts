@@ -1,5 +1,7 @@
 import { PingController } from "./ping";
+import { CityController } from "./city";
 
 export const CONTROLLERS = [
-    new PingController()
+    new PingController(),
+    new CityController()
 ];
