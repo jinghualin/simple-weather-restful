@@ -7,7 +7,6 @@ export class CityService {
     private static USERNAME: string = "jinghualin";
     private static RADIUS: string = "10";
 
-
     public async getCity(cityId: string): Promise<City> {
         const subUrl: string = "getJSON";
         const option: any = {
@@ -17,7 +16,6 @@ export class CityService {
                 username: CityService.USERNAME
             }
         };
-
         try {
             const response = await rp(option);
             console.log(`response for cityID ${cityId}`);
@@ -26,7 +24,27 @@ export class CityService {
             console.log(`error ${error} retrieving geoname for cityId ${cityId}`);
             return undefined;
         }
+    }
 
+    public async getCities(lat: string, lng: number): Promise<Geoname[]> {
+        const subUrl: string = "findNearbyPlaceNameJSON";
+        const option: any = {
+            uri: CityService.BASE_URL + subUrl,
+            qs: {
+                lat: lat,
+                lng: lng,
+                radius: CityService.RADIUS,
+                username: CityService.USERNAME
+            }
+        };
+        try {
+            const response = await rp(option);
+            console.log(`response for lat ${lat} : lng ${lng}`);
+            return JSON.parse(response).geoname;
+        } catch (error) {
+            console.log(`error ${error} retrieving cities for lat ${lat} : lng ${lng}`);
+            return undefined;
+        }
     }
 }
 

@@ -41,7 +41,7 @@ export class ApiServer implements HttpServer {
             }
         });
 
-        console.log("add route");
+        console.log(`Added route ${method.toUpperCase()} ${url}`);
     }
 
     private addControllers(): void {
