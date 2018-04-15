@@ -6,7 +6,7 @@ import { Request, Response } from "restify";
 
 export class CityController implements Controller {
     public initialize(httpServer: HttpServer): void {
-        httpServer.get("/cities", this.getCitiesByLatAndLng.bind(this));
+        httpServer.get("/cities", this.getCities.bind(this));
         httpServer.get("/cities/:id", this.getCityById.bind(this));
     }
 
@@ -14,7 +14,7 @@ export class CityController implements Controller {
         const city = await cityService.getCity(req.params.id);
         res.send(city ? 200 : 404, city);
     }
-    public async getCitiesByLatAndLng(req: Request, res: Response): Promise<void> {
-        res.send(await cityService.getCitiesByLatAndLng(req.query.lat, req.query.lng));
+    public async getCities(req: Request, res: Response): Promise<void> {
+        res.send(await cityService.getCities(req.query.lat, req.query.lng));
     }
 }
