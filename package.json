@@ -19,7 +19,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec ts-node src/index.ts",
     "build": "rimraf build && tsc",
-    "start-server": "node build/index.js"
+    "start-server": "node build/index.js",
+    "docker-build": "docker build -t jinghualin/simple-weather-restful .",
+    "docker-push": "docker push jinghualin/simple-weather-restful",
+    "docker-test": "docker run -d -p 8080:8080 jinghualin/simple-weather-restful"
   },
   "repository": {
     "type": "git",
