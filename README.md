@@ -1,5 +1,6 @@
 # Simple weather restful api 
 A simple example to build a REST based service. 
+
 The service is deployed as docker image with the name `jinghualin/simple-weather-restful`
 
 ## Goal
