@@ -13,13 +13,16 @@ Use curl or postman to test the API service.
 
 Ex. with postman
 1. Get cities nearby given latitude and longitude
+
    localhost:8080/cities?lat=49&lng=10
 
 2. Get a city by cityID(this id please see city api under this document)
+
    localhost:8080/cities/2172797
 
 
 3. Get a weather for a city
+
    localhost:8080/cities/2172797/weather
 
 
