@@ -8,7 +8,7 @@ export class WeatherController implements Controller {
         httpServer.get("/cities/:id/weather", this.getWeatherById.bind(this));
     }
 
-    public async getWeatherById(req: Request, res: Response): Promise<void> {
+    private async getWeatherById(req: Request, res: Response): Promise<void> {
         const weather = await weatherService.getWeatherById(req.params.id);
         res.send(weather ? 200 : 404, weather);
     }

@@ -10,11 +10,11 @@ export class CityController implements Controller {
         httpServer.get("/cities/:id", this.getCityById.bind(this));
     }
 
-    public async getCityById(req: Request, res: Response): Promise<void> {
+    private async getCityById(req: Request, res: Response): Promise<void> {
         const city = await cityService.getCity(req.params.id);
         res.send(city ? 200 : 404, city);
     }
-    public async getCities(req: Request, res: Response): Promise<void> {
+    private async getCities(req: Request, res: Response): Promise<void> {
         res.send(await cityService.getCities(req.query.lat, req.query.lng));
     }
 }
