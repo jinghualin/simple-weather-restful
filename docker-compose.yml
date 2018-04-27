@@ -1,10 +1,9 @@
 version: '2.1'
 
 services:
-  simple-weather-restful:
-    image: simple-weather-restful
-    build: .
+  weather-api:
+    image: jinghualin/simple-weather-restful
     environment:
       NODE_ENV: production
     ports:
-      - 3000:3000
+      - "8080:8080"
