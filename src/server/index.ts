@@ -2,7 +2,7 @@ import { HttpServer } from "./httpServer";
 import { RequestHandler, Server } from "restify";
 import * as restify from "restify";
 import { CONTROLLERS } from "../controllers/index";
-
+import * as corsMiddleware from "restify-cors-middleware";
 
 export class ApiServer implements HttpServer {
 
@@ -23,6 +23,13 @@ export class ApiServer implements HttpServer {
 
     public start(port: number): void {
         this.restify = restify.createServer();
+        const cors = corsMiddleware({
+            origins: ["http://localhost:4200"],
+            allowHeaders: ["X-App-Version"],
+            exposeHeaders: []
+        });
+        this.restify.pre(cors.preflight);
+        this.restify.use(cors.actual);
 
         this.restify.use(restify.plugins.queryParser());
         this.restify.use(restify.plugins.bodyParser());

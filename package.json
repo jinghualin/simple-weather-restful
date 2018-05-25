@@ -8,6 +8,7 @@
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "restify": "^7.1.1",
+    "restify-cors-middleware": "^1.1.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.1",
     "typescript": "^2.8.3"
