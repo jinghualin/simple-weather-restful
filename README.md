@@ -1,4 +1,7 @@
 # Simple weather restful api 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jinghualin/simple-weather-restful.svg)](https://greenkeeper.io/)
+
 A simple example to build a REST based service. 
 
 The service is deployed as docker image with the name `jinghualin/simple-weather-restful`
